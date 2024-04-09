@@ -1,0 +1,23 @@
+.contact{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+.contact .left{
+    flex-basis: 45%;
+    background: linear-gradient(to right, #e6b4b4, #6a3535);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    border-right: 2px solid;
+}
+.contact .right{
+    flex-basis: 45%;
+}
