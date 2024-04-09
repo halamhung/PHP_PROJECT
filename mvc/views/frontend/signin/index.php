@@ -40,7 +40,7 @@
             <?php } ?>
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form action="dang-nhap.html" method="post">
+                    <form action="/shopping/auth/signin" method="post">
                         <h1>Login Form</h1>
                         <div>
                             <input type="text" name="data_post[username]" class="form-control" placeholder="Username"

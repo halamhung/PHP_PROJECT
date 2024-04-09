@@ -38,7 +38,7 @@
 
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form action="auth/signup" method="post">
+                    <form action="/shopping/auth/signup" method="post">
                         <h1>Sign up</h1>
                         <div>
                             <input type="text" name="data_post[name]" class="form-control" placeholder="Full name"
@@ -54,7 +54,8 @@
                         </div>
                         <div style="display: flex; justify-content: space-between ">
                             <button class="btn btn-primary">Sign up</button>
-                            <a href="dang-nhap.html" style="color: blue; text-decoration: underline">Đăng nhập</a>
+                            <a href="/shopping/auth/signin" style="color: blue; text-decoration: underline">Đăng
+                                nhập</a>
                         </div>
                         <div class="clearfix"></div>
                         <div>

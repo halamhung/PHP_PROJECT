@@ -85,12 +85,12 @@ class cart extends controller{
             if ($verify != NULL && $verify != 0) {
                 $auth = $this->Authorzation->checkAuthUser($verify);
                 if (!$auth) {
-                   $redirect = new redirect('dang-nhap.html');
+                   $redirect = new redirect('auth/signin');
                 }
             }
         }
         else{
-            $redirect = new redirect('dang-nhap.html');
+            $redirect = new redirect('auth/signin');
         }
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data_post = $_POST['data_post'];

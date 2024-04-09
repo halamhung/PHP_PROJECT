@@ -14,6 +14,7 @@ class auth extends controller{
     function index(){
        echo 'auth';
     }
+    
     function signup(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $data_post                  = $_POST['data_post'];
@@ -24,14 +25,14 @@ class auth extends controller{
             $data_post['password_text'] = $data_post['password'];
             $data_post['password']      = $password;
             if(count($counts) > 0){
-                $redirect = new redirect('dang-ky.html');
+                $redirect = new redirect('auth/signup');
                 $redirect->setFlash('errors', 'Tài khoản đã tồn tại!');
             }
             else{
                 $result = $this->AccountsModels->add($data_post);
                 $return = json_decode($result, true);
                 if ($return['type']=="sucessFully") {
-                    $redirect = new redirect('dang-ky.html');
+                    $redirect = new redirect('auth/signup');
                     $redirect->setFlash('flash', 'Đăng ký thành công.!');
                 }
             }
@@ -43,6 +44,7 @@ class auth extends controller{
             'title'         => 'Đăng ký'
         ]);
     }
+    
     function signin(){
          if (isset($_SESSION['user'])){
             $verify = $this->Jwtoken->decodeToken($_SESSION['user'],KEYS);
@@ -73,12 +75,12 @@ class auth extends controller{
                }
                else
                {
-                    $redirect = new redirect('dang-nhap.html');
+                    $redirect = new redirect('auth/signin');
                     $redirect->setFlash('errors', 'Sai mật khẩu hoặc tài khoản!');
                }
             }
             else{
-                $redirect = new redirect('dang-nhap.html');
+                $redirect = new redirect('auth/signin');
                 $redirect->setFlash('errors', 'Sai mật khẩu hoặc tài khoản!');
             }
         }
@@ -94,18 +96,19 @@ class auth extends controller{
         }
          $redirect = new redirect('/');
     }
+
     function info(){
         if (isset($_SESSION['user'])){
             $verify = $this->Jwtoken->decodeToken($_SESSION['user'],KEYS);
             if ($verify != NULL && $verify != 0) {
                 $auth = $this->Authorzation->checkAuthUser($verify);
                 if (!$auth) {
-                   $redirect = new redirect('dang-nhap.html');
+                   $redirect = new redirect('auth/signin');
                 }
             }
         }
         else{
-            $redirect = new redirect('dang-nhap.html');
+            $redirect = new redirect('auth/signin');
         }
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $data_post = $_POST['data_post'];
@@ -130,6 +133,7 @@ class auth extends controller{
          'page'          => 'information'
        ]);
     }
+    
     function changePassWord(){
         $data_index = $this->MyController->indexCustomers();
         if (isset($_SESSION['user'])){
@@ -137,12 +141,12 @@ class auth extends controller{
             if ($verify != NULL && $verify != 0) {
                 $auth = $this->Authorzation->checkAuthUser($verify);
                 if (!$auth) {
-                   $redirect = new redirect('dang-nhap.html');
+                   $redirect = new redirect('auth/signin');
                 }
             }
         }
         else{
-            $redirect = new redirect('dang-nhap.html');
+            $redirect = new redirect('auth/signin');
         }
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $data_post = $_POST['data_post'];

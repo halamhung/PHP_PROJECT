@@ -40,8 +40,8 @@
                         <?= ($data_index['user']['username']) ?>
 
                         <?php } else {?>
-                        <a href="dang-ky.html" class="register">Đăng ký</a>
-                        <a href="dang-nhap.html" class="login">Đăng nhập</a>
+                        <a href="/shopping/auth/signup" class="register">Đăng ký</a>
+                        <a href="/shopping/auth/signin" class="login">Đăng nhập</a>
                         <?php } ?>
                     </div>
                 </div>
