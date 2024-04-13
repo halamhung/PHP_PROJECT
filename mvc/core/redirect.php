@@ -9,6 +9,7 @@ class redirect
             header("location:".base_url.$index."");
         }
     }
+    
     public function setFlash($type, $text = '')
     {
         if (isset($_SESSION[$type])) {

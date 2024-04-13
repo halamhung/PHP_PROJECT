@@ -23,7 +23,7 @@ class home extends controller
                 'created_at'    => gmdate('Y-m-d H:i:s', time() + 7*3600)
             ];
             $this->ContactModels->add($arrayAdd);
-            $mail = $this->SendMail->send('Nhận thông tin sản phẩm',$email, 'Đây là nội dung', 'zzskillzzzz@gmail.com');
+            $mail = $this->SendMail->send('Nhận thông tin sản phẩm',$email, 'Đây là nội dung', 'hungdeptrai111@gmail.com');
             if($email){
                 $redirect = new redirect('/');
                 $redirect->setFlash('flash', 'Gửi mail nhận thông tin thành công!');
@@ -37,6 +37,8 @@ class home extends controller
         ];
        $this->viewFrontEnd('frontend/masterlayout',$data);
     }
+
+
     function detail($slug){
        $data = $this->ProductModels->select_row('*',['slug' => $slug]);
        if ($data != NULL)
@@ -44,6 +46,8 @@ class home extends controller
             $cart = $this->cart($data);
        }
     }
+
+    
     function addtocart(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $product = $this->ProductModels->select_row('*',['slug' => trim($_POST['slug'])]);

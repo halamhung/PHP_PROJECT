@@ -18,8 +18,8 @@
         <div class="container">
             <div class="row">
                 <div class="box">
-                    <p>Số điện thoại: <span> <i class="fas fa-phone"></i> <a
-                                href="tel:0982824398">0982.824.398</a></span></p>
+                    <p>Số điện thoại: <span> <i class="fas fa-phone"></i> <a href="tel:090xxxxxxx">090xxxxxxx</a></span>
+                    </p>
                 </div>
                 <div class="box">
                     <div class="button_sign">

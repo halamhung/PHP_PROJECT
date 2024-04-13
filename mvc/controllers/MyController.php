@@ -10,7 +10,8 @@ class MyController extends controller{
         $this->AccountsModels       =  $this->models('AccountsModels');
         // 
          $this->Jwtoken             =  $this->helper('Jwtoken');
-    }
+    } 
+    
     function getIndexAdmin(){
         $data['getModule']      = $this->getModule();
         $data['delelePhoto']    = $this->delelePhoto();
@@ -22,6 +23,7 @@ class MyController extends controller{
         $data['user']           = $this->getUsers();   
         return $data;
     }
+    
     function getModule(){
         $data = $this->ModuleModels->select_array('*',['parentID' => 0,'publish' => 1]);
         foreach($data as $key => $val){

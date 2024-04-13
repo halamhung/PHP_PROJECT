@@ -9,9 +9,9 @@
             <div class="item">
                 <h3>SHOPPING</h3>
                 <div class="info__company">
-                    <p><strong>Website:</strong><a href="http://khanhduydemo1998.com/">khanhduydemo1998.com</a></p>
-                    <p><strong>Địa chỉ:</strong>TPCT</p>
-                    <p><strong>Số điện thoại:</strong><a href="tel:0982824398">0982.824.398</a></p>
+                    <p><strong>Website:</strong><a href="QHC.COM/">QHC.COM</a></p>
+                    <p><strong>Địa chỉ:</strong>HCM</p>
+                    <p><strong>Số điện thoại:</strong><a href="tel:090xxxxxxx">090xxxxxxx</a></p>
                 </div>
             </div>
             <div class="item">
@@ -87,14 +87,15 @@
 
 <footer>
     <div class="container">
-        <p>@Design by Vo Khanh Duy , Year 2022</p>
+        <p>@Design by Hà Lâm Hùng - Ngô Minh Quang - Nguyễn Mạnh Cường</p>
     </div>
 </footer>
+
 <div class="rings__phone">
     <div class="b1 box__phone"></div>
     <div class="b2 box__phone"></div>
     <div class="box__phone phone">
-        <a href="tel:0982824398" title="0982824398"><i class="fas fa-phone-alt"></i></a>
+        <a href="tel:090xxxxxxx" title="090xxxxxxx"><i class="fas fa-phone-alt"></i></a>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

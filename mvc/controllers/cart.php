@@ -79,6 +79,8 @@ class cart extends controller{
             echo json_encode(array_values($_SESSION['cart']));
         }
     }
+
+    
      function payment(){
           if (isset($_SESSION['user'])){
             $verify = $this->Jwtoken->decodeToken($_SESSION['user'],KEYS);
@@ -113,22 +115,50 @@ class cart extends controller{
                 $arrayOrderDetail = [];
                 $contents = '';
                 $contents .= '<h3>Sản Phẩm đã đặt:</h3></br>';
+            
+                // Create the invoice table header
+                $contents .= '<table border="0" style="border: 1.2px solid #c6c6c6 !important; border-spacing: 2px; width: auto !important;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;">Tên sản phẩm</th>
+                                        <th style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;">Số lượng</th>
+                                        <th style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;">Đơn giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>';
+            
+                // Add each product to the invoice table
                 foreach ($this->MyController->getCart() as $key => $value) {
                     array_push($arrayOrderDetail, [
-                        'orderId'   => $resultsOrders['id'],
+                        'orderId'  => $resultsOrders['id'],
                         'productId' => $value['productID'],
-                        'price'     => $value['price'],
-                        'qty'       => $value['qty']
+                        'price'   => $value['price'],
+                        'qty'    => $value['qty']
                     ]);
+            
                     $contents .= '
-                        <div>Tên sản phẩm: '.$value['name'].'</div></br>
-                        <div>Số lượng: '.$value['qty'].'</div></br>
-                        <div>Đơn giá:'.number_format($value['price']).'đ</div></br>
-                    ';
+                                    <tr>
+                                        <td style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;">'.$value['name'].'</td>
+                                        <td style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;text-align: center;">'.$value['qty'].'</td>
+                                        <td style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;">'.number_format($value['price']).'đ</td>
+                                    </tr>
+                                    ';
                 }
-                $contents .= '<p>Tổng hóa đơn: '.number_format($total).'đ</p>';
+            
+                // Add the total to the invoice table footer
+                $contents .= '
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2" style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;font-weight: bold;">Tổng hóa đơn:</td>
+                                        <td style="border: 1.2px solid #c6c6c6 !important; padding: 2px !important;font-weight: bold;">'.number_format($total).'đ</td>
+                                    </tr>
+                                </tfoot>
+                            </table>';
+                $contents .= '<p>Cảm ơn khách hàng đã tin tưởng đặt hàng ở shop tôi, chúng tôi sẽ liên hệ trong thời gian sớm nhất.</p>';
+                
                 $this->OrderDetailModels->addMultiple($arrayOrderDetail);
-                $mail = $this->SendMail->send('Order',$data_post['email'], $contents, 'zzskillzzzz@gmail.com');
+                $mail = $this->SendMail->send('Order',$data_post['email'], $contents, 'hungdeptrai111@gmail.com');
                 unset($_SESSION['cart']);
                 if($mail){
                     $redirect = new redirect('/');

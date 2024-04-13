@@ -26,7 +26,7 @@
             $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body = $contents;
-            // $mail->AltBody = 'Plain Text Content';
+            $mail->AltBody = 'Plain Text Content';
             //$mail->addAttachment('test.txt');
             if (!$mail->send()) {
                 return false;
