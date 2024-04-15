@@ -40,8 +40,8 @@
                         <?= ($data_index['user']['username']) ?>
 
                         <?php } else {?>
-                        <a href="/shopping/auth/signup" class="register">Đăng ký</a>
-                        <a href="/shopping/auth/signin" class="login">Đăng nhập</a>
+                        <a href="/shopping/auth/signin" class="login">Đăng Nhập</a>
+                        <a href="/shopping/auth/signup" class="register">Đăng Ký</a>
                         <?php } ?>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="box">
                     <a href="">
-                        <h3>SHOPPING</h3>
+                        <h3>Ecommerce</h3>
                     </a>
                 </div>
                 <div class="box">

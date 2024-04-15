@@ -7,7 +7,7 @@
     <div class="container">
         <div class="list_items">
             <div class="item">
-                <h3>SHOPPING</h3>
+                <h3>Ecommerce</h3>
                 <div class="info__company">
                     <p><strong>Website:</strong><a href="QHC.COM/">QHC.COM</a></p>
                     <p><strong>Địa chỉ:</strong>HCM</p>
@@ -91,13 +91,6 @@
     </div>
 </footer>
 
-<div class="rings__phone">
-    <div class="b1 box__phone"></div>
-    <div class="b2 box__phone"></div>
-    <div class="box__phone phone">
-        <a href="tel:090xxxxxxx" title="090xxxxxxx"><i class="fas fa-phone-alt"></i></a>
-    </div>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 <script>
 $('.slick_slide').slick({
